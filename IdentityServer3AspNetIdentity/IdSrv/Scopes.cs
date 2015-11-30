@@ -10,10 +10,10 @@ namespace IdentityServer3AspNetIdentity.IdSrv
             return new Scope[]
             {
                 StandardScopes.OpenId,
-                StandardScopes.OpenId,
                 StandardScopes.Profile,
                 StandardScopes.Email,
                 StandardScopes.OfflineAccess,
+                StandardScopes.Roles,
                 new Scope
                 {
                     Name = "read",

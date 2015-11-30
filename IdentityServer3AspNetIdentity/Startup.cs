@@ -26,7 +26,7 @@ namespace IdentityServer3AspNetIdentity
 
             app.Map("/core", coreApp =>
             {
-                var idSvrFactory = Factory.Configure();
+                var idSvrFactory = FactoryEf.Configure("AspId","IdSrv");
                 idSvrFactory.ConfigureUserService("AspId");
 
                 var options = new IdentityServerOptions
@@ -36,7 +36,8 @@ namespace IdentityServer3AspNetIdentity
                     Factory = idSvrFactory,
                     AuthenticationOptions = new AuthenticationOptions()
                     {
-                        IdentityProviders = ConfigureAdditionalIdentityProviders
+                        IdentityProviders = ConfigureAdditionalIdentityProviders,
+                        EnablePostSignOutAutoRedirect = true
                     }
                 };
 
