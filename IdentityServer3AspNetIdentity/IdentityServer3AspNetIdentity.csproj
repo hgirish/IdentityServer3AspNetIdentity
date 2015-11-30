@@ -140,6 +140,9 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <EmbeddedResource Include="IdSrv\idsrv3test.pfx" />
+    <EmbeddedResource Include="IdSrv\m6500-win8.pfx" />
+    <Content Include="appsettings.config" />
+    <None Include="Properties\PublishProfiles\LocalIIS.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

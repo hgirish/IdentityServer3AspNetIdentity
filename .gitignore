@@ -211,3 +211,5 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 IdentityServer3AspNetIdentity/App_Data/idsrvlog*.txt
+appsettings.config
+*.pubxml

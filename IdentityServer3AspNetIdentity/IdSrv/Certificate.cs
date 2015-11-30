@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 
@@ -8,7 +9,9 @@ namespace IdentityServer3AspNetIdentity.IdSrv
     {
         public static X509Certificate2 Get()
         {
-            var resourceName = "IdentityServer3AspNetIdentity.IdSrv.idsrv3test.pfx";
+            var resourceName = ConfigurationManager.AppSettings["certificateResourceName"];
+            var certificatePassword = ConfigurationManager.AppSettings["certificatePassword"];
+
             var assembly = typeof(Certificate).Assembly;
             string[] names = assembly.GetManifestResourceNames();
             foreach (var name in names)
@@ -21,7 +24,7 @@ namespace IdentityServer3AspNetIdentity.IdSrv
             // Make sure to set build action of pfx file to Embedded Resource
             using (var stream = assembly.GetManifestResourceStream(resourceName))
             {
-                return new X509Certificate2(ReadStream(stream), "idsrv3test");
+                return new X509Certificate2(ReadStream(stream), certificatePassword);
             }
         }
 
